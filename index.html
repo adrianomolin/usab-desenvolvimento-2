@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <div class="container">
+      <header>Calculadora</header>
+
+      <div class="divider"></div>
+
+      <div class="history1">
+      </div>
+
+      <div class="calculator">
+        <div class="display">
+          10,2
+        </div>
+        
+        <div class="keyboard-area">
+          <button onclick="insertNumber(7)">7</button>
+          <button onclick="insertNumber(8)">8</button>
+          <button onclick="insertNumber(9)">9</button>
+          <button onclick="insertOperator('divide')">÷</button>
+          <button onclick="clearDisplay()">↩</button>
+          <button onclick="deleteLast()">⌫</button>
+          <button onclick="insertNumber(4)">4</button>
+          <button onclick="insertNumber(5)">5</button>
+          <button onclick="insertNumber(6)">6</button>
+          <button onclick="insertOperator('*')">✕</button>
+          <button onclick="insertOperator('')">(</button>
+          <button onclick="insertOperator('*')">)</button>
+          <button onclick="insertNumber(1)">1</button>
+          <button onclick="insertNumber(2)">2</button>
+          <button onclick="insertNumber(3)">3</button>
+          <button onclick="insertOperator('-')">-</button>
+          <button onclick="insertOperator('square')">x²</button>
+          <button onclick="insertOperator('root')">√</button>
+          <button onclick="insertNumber(0)">0</button>
+          <button onclick="insertOperator(',')">,</button>
+          <button onclick="insertOperator('%')">%</button>
+          <button onclick="insertOperator('+')">+</button>
+          
+          <button class="calculate" onclick="calculate()">=</button>
+      </div>
+      </div>
+  </div>
+</body>
+</html>
