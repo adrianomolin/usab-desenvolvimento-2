@@ -17,19 +17,17 @@
 
       <div class="divider"></div>
 
-      <div class="history1">
+      <div class="history">
       </div>
 
       <div class="calculator">
-        <div class="display">
-          10,2
-        </div>
+        <div class="display"></div>
         
         <div class="keyboard-area">
           <button onclick="insertNumber(7)">7</button>
           <button onclick="insertNumber(8)">8</button>
           <button onclick="insertNumber(9)">9</button>
-          <button onclick="insertOperator('divide')">÷</button>
+          <button onclick="insertOperator('/')">÷</button>
           <button onclick="clearDisplay()">↩</button>
           <button onclick="deleteLast()">⌫</button>
           <button onclick="insertNumber(4)">4</button>
@@ -42,8 +40,8 @@
           <button onclick="insertNumber(2)">2</button>
           <button onclick="insertNumber(3)">3</button>
           <button onclick="insertOperator('-')">-</button>
-          <button onclick="insertOperator('square')">x²</button>
-          <button onclick="insertOperator('root')">√</button>
+          <button onclick="insertOperator('**')">x²</button>
+          <button onclick="insertOperator('')">√</button>
           <button onclick="insertNumber(0)">0</button>
           <button onclick="insertOperator(',')">,</button>
           <button onclick="insertOperator('%')">%</button>
@@ -51,7 +49,50 @@
           
           <button class="calculate" onclick="calculate()">=</button>
       </div>
-      </div>
+    </div>
   </div>
+  
+  <script>
+    const display = document.querySelector('.display');
+
+    function insertNumber(number) {
+      display.textContent += number;
+    }
+
+    function insertOperator(operator) {
+      if (display.textContent.endsWith(operator)) return;
+      if (display.textContent === '') return;
+      if (display.textContent.match('\d$')) return;
+      
+      display.textContent += operator;
+    }
+
+    function clearDisplay() {
+      display.textContent = '';
+    }
+
+    function deleteLast() {
+      display.textContent = display.textContent.slice(0, -1);
+    }
+
+    function calculate() {
+      const history = document.querySelector('.history');
+      const cell = document.createElement('div');
+
+      const operation = display.textContent;
+      if (operation === '') return;
+
+      const result = eval(operation);
+      cell.className = 'cell';
+      cell.innerHTML = `
+        <span class="operation">${operation}</span>
+          =
+        <span class="result">${result}</span>
+      `;
+
+      history.append(cell);
+      display.textContent = '';
+    }
+  </script>
 </body>
 </html>
